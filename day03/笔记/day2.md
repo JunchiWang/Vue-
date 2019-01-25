@@ -321,17 +321,17 @@ Vue.elementDirective('red-color', {
 + [生命周期钩子](https://cn.vuejs.org/v2/api/#选项-生命周期钩子)：就是生命周期事件的别名而已；
 + 生命周期钩子 = 生命周期函数 = 生命周期事件
 + 主要的生命周期函数分类：
- - 创建期间的生命周期函数：
-  	+ beforeCreate：实例刚在内存中被创建出来，此时，还没有初始化好 data 和 methods 属性
-  	+ created：实例已经在内存中创建OK，此时 data 和 methods 已经创建OK，此时还没有开始 编译模板
-  	+ beforeMount：此时已经完成了模板的编译，但是还没有挂载到页面中
-  	+ mounted：此时，已经将编译好的模板，挂载到了页面指定的容器中显示
- - 运行期间的生命周期函数：
- 	+ beforeUpdate：状态更新之前执行此函数， 此时 data 中的状态值是最新的，但是界面上显示的 数据还是旧的，因为此时还没有开始重新渲染DOM节点
- 	+ updated：实例更新完毕之后调用此函数，此时 data 中的状态值 和 界面上显示的数据，都已经完成了更新，界面已经被重新渲染好了！
- - 销毁期间的生命周期函数：
- 	+ beforeDestroy：实例销毁之前调用。在这一步，实例仍然完全可用。
- 	+ destroyed：Vue 实例销毁后调用。调用后，Vue 实例指示的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁。
+- 创建期间的生命周期函数：
+    + beforeCreate：实例刚在内存中被创建出来，此时，还没有初始化好 data 和 methods 属性
+      + created：实例已经在内存中创建OK，此时 data 和 methods 已经创建OK，此时还没有开始 编译模板
+      + beforeMount：此时已经完成了模板的编译，但是还没有挂载到页面中
+      + mounted：此时，已经将编译好的模板，挂载到了页面指定的容器中显示
+- 运行期间的生命周期函数：
+    + beforeUpdate：状态更新之前执行此函数， 此时 data 中的状态值是最新的，但是界面上显示的 数据还是旧的，因为此时还没有开始重新渲染DOM节点
+    + updated：实例更新完毕之后调用此函数，此时 data 中的状态值 和 界面上显示的数据，都已经完成了更新，界面已经被重新渲染好了！
+- 销毁期间的生命周期函数：
+    + beforeDestroy：实例销毁之前调用。在这一步，实例仍然完全可用。
+    + destroyed：Vue 实例销毁后调用。调用后，Vue 实例指示的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁。
 
 
 ## [vue-resource 实现 get, post, jsonp请求](https://github.com/pagekit/vue-resource)
@@ -339,18 +339,18 @@ Vue.elementDirective('red-color', {
 1. 之前的学习中，如何发起数据请求？
 2. 常见的数据请求类型？  get  post jsonp
 3. 测试的URL请求资源地址：
- + get请求地址： http://vue.studyit.io/api/getlunbo
- + post请求地址：http://vue.studyit.io/api/post
- + jsonp请求地址：http://vue.studyit.io/api/jsonp
++ get请求地址： http://vue.studyit.io/api/getlunbo
++ post请求地址：http://vue.studyit.io/api/post
++ jsonp请求地址：http://vue.studyit.io/api/jsonp
 4. JSONP的实现原理
- + 由于浏览器的安全性限制，不允许AJAX访问 协议不同、域名不同、端口号不同的 数据接口，浏览器认为这种访问不安全；
- + 可以通过动态创建script标签的形式，把script标签的src属性，指向数据接口的地址，因为script标签不存在跨域限制，这种数据获取方式，称作JSONP（注意：根据JSONP的实现原理，知晓，JSONP只支持Get请求）；
- + 具体实现过程：
- 	- 先在客户端定义一个回调方法，预定义对数据的操作；
- 	- 再把这个回调方法的名称，通过URL传参的形式，提交到服务器的数据接口；
- 	- 服务器数据接口组织好要发送给客户端的数据，再拿着客户端传递过来的回调方法名称，拼接出一个调用这个方法的字符串，发送给客户端去解析执行；
- 	- 客户端拿到服务器返回的字符串之后，当作Script脚本去解析执行，这样就能够拿到JSONP的数据了；
- + 带大家通过 Node.js ，来手动实现一个JSONP的请求例子；
++ 由于浏览器的安全性限制，不允许AJAX访问 协议不同、域名不同、端口号不同的 数据接口，浏览器认为这种访问不安全；
++ 可以通过动态创建script标签的形式，把script标签的src属性，指向数据接口的地址，因为script标签不存在跨域限制，这种数据获取方式，称作JSONP（注意：根据JSONP的实现原理，知晓，JSONP只支持Get请求）；
++ 具体实现过程：
+    - 先在客户端定义一个回调方法，预定义对数据的操作；
+    - 再把这个回调方法的名称，通过URL传参的形式，提交到服务器的数据接口；
+    - 服务器数据接口组织好要发送给客户端的数据，再拿着客户端传递过来的回调方法名称，拼接出一个调用这个方法的字符串，发送给客户端去解析执行；
+    - 客户端拿到服务器返回的字符串之后，当作Script脚本去解析执行，这样就能够拿到JSONP的数据了；
++ 带大家通过 Node.js ，来手动实现一个JSONP的请求例子；
  ```
     const http = require('http');
     // 导入解析 URL 地址的核心模块
@@ -389,8 +389,8 @@ Vue.elementDirective('red-color', {
     });
  ```
 5. vue-resource 的配置步骤：
- + 直接在页面中，通过`script`标签，引入 `vue-resource` 的脚本文件；
- + 注意：引用的先后顺序是：先引用 `Vue` 的脚本文件，再引用 `vue-resource` 的脚本文件；
++ 直接在页面中，通过`script`标签，引入 `vue-resource` 的脚本文件；
++ 注意：引用的先后顺序是：先引用 `Vue` 的脚本文件，再引用 `vue-resource` 的脚本文件；
 6. 发送get请求：
 ```
 getInfo() { // get 方式获取数据
@@ -428,7 +428,7 @@ jsonpInfo() { // JSONP形式从服务器获取数据
 3. 打开 `Navicat` 工具，新建空白数据库，名为 `dtcmsdb4`;
 4. 双击新建的数据库，连接上这个空白数据库，在新建的数据库上`右键` -> `运行SQL文件`，选择并执行 `dtcmsdb4.sql` 这个数据库脚本文件；如果执行不报错，则数据库导入完成；
 5. 进入文件夹 `vuecms3_nodejsapi` 内部，执行 `npm i` 安装所有的依赖项；
-6. 先确保本机安装了 `nodemon`, 没有安装，则运行 `npm i nodemon -g` 进行全局安装，安装完毕后，进入到 `vuecms3_nodejsapi`目录 -> `src`目录 -> 双击运行 `start.bat`
+6. 先确保本机安装了 `nodemon`, 如果没有安装，则运行 `npm i nodemon -g` 进行全局安装，安装完毕后，进入到 `vuecms3_nodejsapi`目录 -> `src`目录 -> 双击运行 `start.bat`
 7. 如果API启动失败，请检查 PHPStudy 是否正常开启，同时，检查 `app.js` 中第 `14行` 中数据库连接配置字符串是否正确；PHPStudy 中默认的 用户名是root，默认的密码也是root
 
 ## 品牌管理改造
